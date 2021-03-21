@@ -2,90 +2,35 @@ if !filereadable(glob("~/.config/nvim/autoload/plug.vim"))
   !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 endif
 
-let g:clipboard = {
-  \ 'name': 'pbcopy',
-  \ 'copy': {
-  \    '+': 'pbcopy',
-  \    '*': 'pbcopy',
-  \  },
-  \ 'paste': {
-  \    '+': 'pbpaste',
-  \    '*': 'pbpaste',
-  \ },
-  \ 'cache_enabled': 0,
-  \ }
-
-" let g:python_host_prog = $HOME . '/nvim2/bin/python'
-" let g:ruby_host_prog = $HOME . '/.asdf/installs/ruby/2.5.1/bin/ruby'
-" let g:python3_host_prog = $HOME . '/nvim3/bin/python'
-let g:python3_host_prog = $HOME . '/.asdf/installs/python/3.9.0/bin/python'
-
-
 let mapleader = ' '
 let maplocalleader = ','
-" let g:ale_completion_enabled = 1
 
 silent !mkdir -p ~/.vim/undo > /dev/null 2>&1
 
 call plug#begin('~/.vim/plugged')
-" Plug 'dense-analysis/ale'
-" Plug 'elmcast/elm-vim'
 Plug 'vimwiki/vimwiki'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
-" Plug 'leanprover/lean.vim'
 Plug 'rizzatti/dash.vim', { 'on': 'Dash' }
-" Plug 'reasonml-editor/vim-reason-plus'
-" Plug 'chrisbra/csv.vim'
 
-" Plug 'elixir-lang/vim-elixir'
-" Plug 'slashmili/alchemist.vim'
-" Plug 'manicmaniac/coconut.vim'
-
-" Plug 'maralla/completor.vim'
-" Plug 'thinca/vim-ref'
-" Plug 'awetzel/elixir.nvim', { 'do': 'yes \| ./install.sh' }
-" Plug 'ervandew/supertab'
-" Plug 'autozimu/LanguageClient-neovim', {
-"       \ 'branch': 'next',
-"       \ 'do': 'bash install.sh',
-"       \ }
-" Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-" Plug 'zchee/deoplete-jedi', { 'for': 'python' }
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
 Plug 'machakann/vim-highlightedyank'
-" Plug 'guns/vim-sexp'
-" Plug 'kien/rainbow_parentheses.vim'
 
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-vinegar'
 Plug 'tpope/vim-fugitive'
-" Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-surround'
-" Plug 'tpope/vim-endwise'
-" Plug 'tpope/vim-fireplace'
-" Plug 'tpope/vim-sexp-mappings-for-regular-people'
 
 Plug 'edkolev/tmuxline.vim'
-" Plug 'nanotech/jellybeans.vim'
-" Plug 'junegunn/seoul256.vim'
-Plug 'joshdick/onedark.vim'
-Plug 'altercation/vim-colors-solarized'
 Plug 'vim-scripts/Liquid-Carbon'
 
 Plug 'ryanoasis/vim-devicons'
 Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
 Plug 'ludovicchabant/vim-gutentags'
-" Plug 'skywind3000/gutentags_plus'
-
-" Plug 'rust-lang/rust.vim'
-" Plug 'racer-rust/vim-racer'
-
-" Plug 'jmcantrell/vim-virtualenv'
 
 Plug 'sheerun/vim-polyglot'
 Plug 'google/vim-jsonnet', {'for': 'jsonnet'}
@@ -97,21 +42,9 @@ call plug#end()
 syntax enable
 filetype plugin indent on
 filetype detect
-" let g:jellybeans_background_color_256='NONE'
-" colorscheme onedark
-" set background=light
 set background=dark
-" colorscheme solarized
 let g:onedark_termcolors=256
 colorscheme liquidcarbon
-
-" nnoremap <silent> K :ALEHover<CR>
-" nnoremap <silent> <cr> :ALEHover<cr>
-" " nnoremap <silent> gd :ALEGoToDefinition<CR>
-" nnoremap <silent> gf :ALEFix<cr>
-" nnoremap <silent> <leader>s :ALESymbolSearch
-" nnoremap <silent> <leader>r :ALEFindReferences<cr>
-" Remap keys for gotos
 
 set expandtab
 set shiftwidth=2
@@ -151,26 +84,9 @@ nnoremap Y y$
 
 " Map <Esc> to exit terminal-mode:
 tnoremap <Esc> <C-\><C-n>
-" tnoremap <A-h> <C-\><C-N><C-w>h
-" tnoremap <A-j> <C-\><C-N><C-w>j
-" tnoremap <A-k> <C-\><C-N><C-w>k
-" tnoremap <A-l> <C-\><C-N><C-w>l
-" inoremap <A-h> <C-\><C-N><C-w>h
-" inoremap <A-j> <C-\><C-N><C-w>j
-" inoremap <A-k> <C-\><C-N><C-w>k
-" inoremap <A-l> <C-\><C-N><C-w>l
-" nnoremap <A-h> <C-w>h
-" nnoremap <A-j> <C-w>j
-" nnoremap <A-k> <C-w>k
-" nnoremap <A-l> <C-w>l
-
 
 let g:tmux_navigator_no_mappings = 1
 
-" nnoremap <silent> <Left> :TmuxNavigateLeft<cr>
-" nnoremap <silent> <Down> :TmuxNavigateDown<cr>
-" nnoremap <silent> <Up> :TmuxNavigateUp<cr>
-" nnoremap <silent> <Right> :TmuxNavigateRight<cr>
 tnoremap <silent> <M-h> <C-\><C-N>:TmuxNavigateLeft<cr>
 tnoremap <silent> <M-j> <C-\><C-N>:TmuxNavigateDown<cr>
 tnoremap <silent> <M-k> <C-\><C-N>:TmuxNavigateUp<cr>
@@ -185,11 +101,6 @@ nnoremap <silent> <M-k> :TmuxNavigateUp<cr>
 nnoremap <silent> <M-l> :TmuxNavigateRight<cr>
 
 
-" noremap <silent> <c-l> <c-w>l
-" noremap <silent> <c-h> <c-w>h
-" noremap <silent> <c-k> <c-w>k
-" noremap <silent> <c-j> <c-w>j
-"
 noremap <leader>$ :setlocal spell! spelllang=en_us<CR>
 noremap <leader>f :Files<CR>
 noremap <leader>b :Buffers<CR>
@@ -315,27 +226,18 @@ let g:tagbar_type_markdown = {
 let g:gutentags_cache_dir = '~/.tags_cache'
 set statusline+=%{gutentags#statusline()}
 
-" let g:polyglot_disabled = ['elm', 'r']
-
 let g:LatexBox_latexmk_async = 1
-" let g:LatexBox_latexmk_preview_continuously = 1
 
 " Theme
 let g:airline_powerline_fonts = 1
-" let g:airline_theme='onedark'
 let g:airline_theme='minimalist'
-" let g:airline_solarized_bg='dark'
-" let g:airline#extensions#ale#enabled = 1
 "
-" " if hidden is not set, TextEdit might fail.
+" if hidden is not set, TextEdit might fail.
 set hidden
 
 " Some servers have issues with backup files, see #649
 set nobackup
 set nowritebackup
-
-" Better display for messages
-" set cmdheight=2
 
 " You will have bad experience for diagnostic messages when it's default 4000.
 set updatetime=300
