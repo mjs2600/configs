@@ -461,7 +461,11 @@ let g:coc_global_extensions = [
       \ 'coc-git',
       \ 'coc-rust-analyzer',
       \ 'coc-pyright',
-      \ 'coc-toml'
+      \ 'coc-toml',
+      \ 'coc-markdownlint',
+      \ 'coc-emoji',
+      \ 'coc-sh',
+      \ 'coc-fish'
       \ ]
 
 augroup formatting

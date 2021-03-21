@@ -1,0 +1,12 @@
+{
+  "python.jediEnabled": false,
+  "python.formatting.provider": "black",
+  "languageserver": {
+    "zls": {
+      "command": "zls",
+      "filetypes": [
+        "zig"
+      ]
+    }
+  }
+}
