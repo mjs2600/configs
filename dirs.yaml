@@ -1,0 +1,7 @@
+"~/":
+  - ".tmux.conf"
+"~/.config/fish/":
+  - "config.fish"
+"~/.config/nvim/":
+  - "coc-settings.json"
+  - "init.vim"

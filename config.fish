@@ -22,3 +22,10 @@ if status --is-interactive; and test -z "$TMUX"
     exec tmux new -A -s local
   end
 end
+
+# Created by `pipx` on 2021-03-24 14:21:05
+set PATH $PATH /home/michael/.local/bin
+
+
+# Aliases
+alias m4b-tool='docker run -it --rm -u (id -u):(id -g) -v (pwd):/mnt m4b-tool'

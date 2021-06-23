@@ -37,6 +37,7 @@ Plug 'google/vim-jsonnet', {'for': 'jsonnet'}
 Plug 'christoomey/vim-tmux-navigator', { 'on': ['TmuxNavigateLeft', 'TmuxNavigateDown', 'TmuxNavigateUp', 'TmuxNavigateRight'] }
 Plug 'niklasl/vim-rdf'
 Plug 'rvesse/vim-sparql'
+Plug 'gleam-lang/gleam.vim'
 call plug#end()
 
 syntax enable
@@ -123,12 +124,14 @@ augroup whitespace
 augroup END
 
 let g:vimwiki_list = [{'path': '~/Dropbox/knowledge-graph',
-                       \ 'syntax': 'markdown', 'ext': '.md'}]
+                       \ 'syntax': 'markdown', 'ext': '.md',
+                       \ 'diary_rel_path':  'log/'}]
 
-autocmd BufEnter *.wiki silent! lcd %:p:h
+let g:vimwiki_global_ext = 0
+
 autocmd FileType vimwiki :nmap <Leader>tt <Plug>VimwikiToggleListItem
 autocmd FileType vimwiki :vmap <Leader>tt <Plug>VimwikiToggleListItem
-
+autocmd FileType vimwiki silent! :lcd ~/Dropbox/knowledge-graph/
 
 noremap <leader>. :e ~/.config/nvim/init.vim<CR>
 
@@ -359,15 +362,16 @@ nnoremap <silent> <leader>k  :<C-u>CocPrev<CR>
 nnoremap <silent> <leader>p  :<C-u>CocListResume<CR>
 
 let g:coc_global_extensions = [
-      \ 'coc-json',
-      \ 'coc-git',
-      \ 'coc-rust-analyzer',
-      \ 'coc-pyright',
-      \ 'coc-toml',
-      \ 'coc-markdownlint',
       \ 'coc-emoji',
+      \ 'coc-fish',
+      \ 'coc-git',
+      \ 'coc-json',
+      \ 'coc-markdownlint',
+      \ 'coc-pyright',
+      \ 'coc-rust-analyzer',
       \ 'coc-sh',
-      \ 'coc-fish'
+      \ 'coc-toml',
+      \ 'coc-yaml'
       \ ]
 
 augroup formatting
