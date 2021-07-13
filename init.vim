@@ -366,6 +366,7 @@ let g:coc_global_extensions = [
       \ 'coc-fish',
       \ 'coc-git',
       \ 'coc-json',
+      \ 'coc-tsserver',
       \ 'coc-markdownlint',
       \ 'coc-pyright',
       \ 'coc-rust-analyzer',
