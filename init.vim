@@ -1,118 +1,17 @@
-if !filereadable(glob("~/.config/nvim/autoload/plug.vim"))
-  !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+if !filereadable(glob("~/.local/share/nvim/site/pack/packer/start/packer.nvim/lua/packer.lua"))
+  !git clone https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim
 endif
 
-let mapleader = ' '
-let maplocalleader = ','
+lua require('init')
 
 silent !mkdir -p ~/.vim/undo > /dev/null 2>&1
-
-call plug#begin('~/.vim/plugged')
-Plug 'vimwiki/vimwiki'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-
-Plug 'rizzatti/dash.vim', { 'on': 'Dash' }
-
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
-Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
-Plug 'machakann/vim-highlightedyank'
-
-Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-vinegar'
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-surround'
-
-Plug 'edkolev/tmuxline.vim'
-Plug 'vim-scripts/Liquid-Carbon'
-
-Plug 'ryanoasis/vim-devicons'
-Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
-Plug 'ludovicchabant/vim-gutentags'
-
-Plug 'sheerun/vim-polyglot'
-Plug 'google/vim-jsonnet', {'for': 'jsonnet'}
-Plug 'christoomey/vim-tmux-navigator', { 'on': ['TmuxNavigateLeft', 'TmuxNavigateDown', 'TmuxNavigateUp', 'TmuxNavigateRight'] }
-Plug 'niklasl/vim-rdf'
-Plug 'rvesse/vim-sparql'
-Plug 'gleam-lang/gleam.vim'
-call plug#end()
 
 syntax enable
 filetype plugin indent on
 filetype detect
-set background=dark
-let g:onedark_termcolors=256
-colorscheme liquidcarbon
-
-set expandtab
-set shiftwidth=2
-set softtabstop=2
-set ignorecase
-set smartcase
-set hlsearch
-set incsearch
-set inccommand=nosplit
-set number
-" set encoding=utf8 " Necessary to show Unicode glyphs
-set list listchars=tab:>>,eol:¬,trail:·
-set undofile
-set undodir=~/.vim/undo
-set shell=fish
-set mouse=a
-set vb
-set guioptions-=T  "remove toolbar
-set clipboard+=unnamedplus
-set textwidth=0
-set colorcolumn=+1
-set t_Co=256
-set grepprg=rg\ --vimgrep
-
 highlight Normal ctermbg=NONE
 highlight nonText ctermbg=NONE
 
-command! -bang -nargs=* Rg
-      \ call fzf#vim#grep(
-      \   'rg --column --line-number --no-heading --color=always '.shellescape(<q-args>), 1,
-      \   <bang>0 ? fzf#vim#with_preview('up:60%')
-      \           : fzf#vim#with_preview('right:50%:hidden', '?'),
-      \   <bang>0)
-
-
-nnoremap Y y$
-
-" Map <Esc> to exit terminal-mode:
-tnoremap <Esc> <C-\><C-n>
-
-let g:tmux_navigator_no_mappings = 1
-
-tnoremap <silent> <M-h> <C-\><C-N>:TmuxNavigateLeft<cr>
-tnoremap <silent> <M-j> <C-\><C-N>:TmuxNavigateDown<cr>
-tnoremap <silent> <M-k> <C-\><C-N>:TmuxNavigateUp<cr>
-tnoremap <silent> <M-l> <C-\><C-N>:TmuxNavigateRight<cr>
-inoremap <silent> <M-h> <C-\><C-N>:TmuxNavigateLeft<cr>
-inoremap <silent> <M-j> <C-\><C-N>:TmuxNavigateDown<cr>
-inoremap <silent> <M-k> <C-\><C-N>:TmuxNavigateUp<cr>
-inoremap <silent> <M-l> <C-\><C-N>:TmuxNavigateRight<cr>
-nnoremap <silent> <M-h> :TmuxNavigateLeft<cr>
-nnoremap <silent> <M-j> :TmuxNavigateDown<cr>
-nnoremap <silent> <M-k> :TmuxNavigateUp<cr>
-nnoremap <silent> <M-l> :TmuxNavigateRight<cr>
-
-
-noremap <leader>$ :setlocal spell! spelllang=en_us<CR>
-noremap <leader>f :Files<CR>
-noremap <leader>b :Buffers<CR>
-noremap <leader>q :Dash<CR>
-noremap <leader>/ :Rg<CR>
-noremap <leader>t :Tags<CR>
-noremap <leader>y :TagbarToggle<CR>
-noremap <leader>u :UndotreeToggle<CR>
-noremap <leader>` :terminal<CR>
-
-nnoremap <leader><cr> :nohlsearch<cr>
 
 func! DeleteTrailingWS()
   exe 'normal mz'
@@ -123,17 +22,6 @@ augroup whitespace
   autocmd BufWrite * silent call DeleteTrailingWS()
 augroup END
 
-let g:vimwiki_list = [{'path': '~/Dropbox/knowledge-graph',
-                       \ 'syntax': 'markdown', 'ext': '.md',
-                       \ 'diary_rel_path':  'log/'}]
-
-let g:vimwiki_global_ext = 0
-
-autocmd FileType vimwiki :nmap <Leader>tt <Plug>VimwikiToggleListItem
-autocmd FileType vimwiki :vmap <Leader>tt <Plug>VimwikiToggleListItem
-autocmd FileType vimwiki silent! :lcd ~/Dropbox/knowledge-graph/
-
-noremap <leader>. :e ~/.config/nvim/init.vim<CR>
 
 " Make
 autocmd FileType make setlocal noexpandtab softtabstop=0
@@ -149,94 +37,11 @@ augroup END
 " Rust
 autocmd FileType rust noremap <buffer> <leader><space> :!cargo test<cr>
 
-let g:tagbar_type_elixir = {
-    \ 'ctagstype' : 'elixir',
-    \ 'kinds' : [
-        \ 'm:modules',
-        \ 'f:functions',
-        \ 'functions:functions',
-        \ 'c:callbacks',
-        \ 'd:delegates',
-        \ 'e:exceptions',
-        \ 'i:implementations',
-        \ 'a:macros',
-        \ 'o:operators',
-        \ 'p:protocols',
-        \ 'r:records',
-        \ 't:tests'
-    \ ]
-    \ }
-
-" Rust
-let g:tagbar_type_rust = {
-    \ 'ctagstype' : 'rust',
-    \ 'kinds' : [
-        \'T:types',
-        \'f:functions',
-        \'g:enums',
-        \'s:structure names',
-        \'m:modules,module names',
-        \'c:consts',
-        \'t:traits',
-        \'i:impls',
-    \]
-    \}
-
-" Haskell
-let g:tagbar_type_haskell = {
-    \ 'ctagsbin'  : 'hasktags',
-    \ 'ctagsargs' : '-x -c -o-',
-    \ 'kinds'     : [
-        \  'm:modules:0:1',
-        \  'd:data: 0:1',
-        \  'd_gadt: data gadt:0:1',
-        \  't:type names:0:1',
-        \  'nt:new types:0:1',
-        \  'c:classes:0:1',
-        \  'cons:constructors:1:1',
-        \  'c_gadt:constructor gadt:1:1',
-        \  'c_a:constructor accessors:1:1',
-        \  'ft:function types:1:1',
-        \  'fi:function implementations:0:1',
-        \  'o:others:0:1'
-    \ ],
-    \ 'sro'        : '.',
-    \ 'kind2scope' : {
-        \ 'm' : 'module',
-        \ 'c' : 'class',
-        \ 'd' : 'data',
-        \ 't' : 'type'
-    \ },
-    \ 'scope2kind' : {
-        \ 'module' : 'm',
-        \ 'class'  : 'c',
-        \ 'data'   : 'd',
-        \ 'type'   : 't'
-    \ }
-\ }
-
-" Markdown
-let g:tagbar_type_markdown = {
-    \ 'ctagstype' : 'markdown',
-    \ 'kinds' : [
-        \ 'h:Heading_L1',
-        \ 'i:Heading_L2',
-        \ 'k:Heading_L3'
-    \ ]
-    \ }
-
 " let g:gutentags_modules = ['ctags', 'gtags_cscope']
 let g:gutentags_cache_dir = '~/.tags_cache'
 set statusline+=%{gutentags#statusline()}
 
 let g:LatexBox_latexmk_async = 1
-
-" Theme
-let g:airline_powerline_fonts = 1
-let g:airline_theme='minimalist'
-"
-" if hidden is not set, TextEdit might fail.
-set hidden
 
 " Some servers have issues with backup files, see #649
 set nobackup
@@ -360,20 +165,6 @@ nnoremap <silent> <leader>j  :<C-u>CocNext<CR>
 nnoremap <silent> <leader>k  :<C-u>CocPrev<CR>
 " Resume latest coc list
 nnoremap <silent> <leader>p  :<C-u>CocListResume<CR>
-
-let g:coc_global_extensions = [
-      \ 'coc-emoji',
-      \ 'coc-fish',
-      \ 'coc-git',
-      \ 'coc-json',
-      \ 'coc-tsserver',
-      \ 'coc-markdownlint',
-      \ 'coc-pyright',
-      \ 'coc-rust-analyzer',
-      \ 'coc-sh',
-      \ 'coc-toml',
-      \ 'coc-yaml'
-      \ ]
 
 augroup formatting
   autocmd BufWrite * silent call CocAction('format')

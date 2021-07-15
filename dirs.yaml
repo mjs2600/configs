@@ -5,3 +5,4 @@
 "~/.config/nvim/":
   - "coc-settings.json"
   - "init.vim"
+  - "lua"
