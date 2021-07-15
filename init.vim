@@ -1,7 +1,3 @@
-if !filereadable(glob("~/.local/share/nvim/site/pack/packer/start/packer.nvim/lua/packer.lua"))
-  !git clone https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim
-endif
-
 lua require('init')
 
 silent !mkdir -p ~/.vim/undo > /dev/null 2>&1
