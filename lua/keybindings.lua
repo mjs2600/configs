@@ -1,4 +1,3 @@
-
 vim.g.tmux_navigator_no_mappings = 1
 
 vim.api.nvim_set_keymap('n', 'Y', 'y$', {noremap = true})
@@ -18,14 +17,16 @@ vim.api.nvim_set_keymap('n', '<M-j>', ':TmuxNavigateDown<cr>', {noremap=true, si
 vim.api.nvim_set_keymap('n', '<M-k>', ':TmuxNavigateUp<cr>', {noremap=true, silent=true})
 vim.api.nvim_set_keymap('n', '<M-l>', ':TmuxNavigateRight<cr>', {noremap=true, silent=true})
 
-vim.api.nvim_set_keymap('n', '<leader>$', ':setlocal spell! spelllang=en_us<CR>', {noremap=true})
-vim.api.nvim_set_keymap('n', '<leader>f', ':Files<CR>', {noremap=true})
-vim.api.nvim_set_keymap('n', '<leader>b', ':Buffers<CR>', {noremap=true})
+vim.api.nvim_set_keymap('n', '<leader>$', ':setlocal spell! spelllang=en_us<cr>', {noremap=true})
+vim.api.nvim_set_keymap('n', '<leader>f', '<cmd>Telescope find_files<cr>', {noremap=true})
+vim.api.nvim_set_keymap('n', '<leader>b', '<cmd>Telescope buffers<cr>', {noremap=true})
+vim.api.nvim_set_keymap('n', '<leader>d', '<cmd>Telescope coc definitions<cr>', {noremap=true})
 vim.api.nvim_set_keymap('n', '<leader>q', ':Dash<CR>', {noremap=true})
-vim.api.nvim_set_keymap('n', '<leader>/', ':Rg<CR>', {noremap=true})
-vim.api.nvim_set_keymap('n', '<leader>t', ':Tags<CR>', {noremap=true})
-vim.api.nvim_set_keymap('n', '<leader>y', ':TagbarToggle<CR>', {noremap=true})
-vim.api.nvim_set_keymap('n', '<leader>u', ':UndotreeToggle<CR>', {noremap=true})
-vim.api.nvim_set_keymap('n', '<leader>`', ':terminal<CR>', {noremap=true})
+vim.api.nvim_set_keymap('n', '<leader>/', '<cmd>Telescope live_grep<cr>', {noremap=true})
+vim.api.nvim_set_keymap('n', '<leader>t', '<cmd>Telescope coc workspace_symbols<cr>', {noremap=true})
+vim.api.nvim_set_keymap('n', '<leader><leader>', '<cmd>Telescope quickfix<cr>', {noremap=true})
+vim.api.nvim_set_keymap('n', '<leader>y', ':TagbarToggle<cr>', {noremap=true})
+vim.api.nvim_set_keymap('n', '<leader>u', ':UndotreeToggle<cr>', {noremap=true})
+vim.api.nvim_set_keymap('n', '<leader>`', ':terminal<cr>', {noremap=true})
 vim.api.nvim_set_keymap('n', '<leader><cr>', ':nohlsearch<cr>', {noremap=true})
-vim.api.nvim_set_keymap('n', '<leader>.', ':e ~/.config/nvim/init.vim<CR>', {noremap=true})
+vim.api.nvim_set_keymap('n', '<leader>.', ':e ~/.config/nvim/init.vim<cr>', {noremap=true})

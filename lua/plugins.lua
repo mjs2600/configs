@@ -39,6 +39,22 @@ return require('packer').startup(function()
   use {'neoclide/coc.nvim', branch='release'}
   -- use 'neovim/nvim-lspconfig'
 
-  use {'junegunn/fzf', dir = '~/.fzf', run = './install --all' }
-  use 'junegunn/fzf.vim'
+  use {
+    'nvim-telescope/telescope.nvim',
+    requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}}
+  }
+  use { 'fannheyward/telescope-coc.nvim',
+    requires = {{'nvim-telescope/telescope.nvim'}}
+  }
+
+  use "lukas-reineke/indent-blankline.nvim"
+
+  use {'kristijanhusak/orgmode.nvim', config = function()
+        require('orgmode').setup{
+            org_agenda_files = {'~/knowledge-graph/org/**/*'},
+            org_default_notes_file = '~/knowledge-graph/README.org',
+        }
+  end
+  }
+
 end)

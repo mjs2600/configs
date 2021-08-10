@@ -1,4 +1,4 @@
-vim.g.vimwiki_list = {{path='~/Dropbox/knowledge-graph',
+vim.g.vimwiki_list = {{path='~/knowledge-graph',
                        syntax='markdown',
                        ext='.md',
                        diary_rel_path='log/'}}
