@@ -3,6 +3,7 @@ vim.g.coc_global_extensions = {
       'coc-fish',
       'coc-git',
       'coc-json',
+      'coc-julia',
       'coc-lua',
       'coc-markdownlint',
       'coc-pyright',

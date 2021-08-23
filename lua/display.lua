@@ -15,15 +15,11 @@ vim.o.shell = "fish"
 vim.o.mouse = "a"
 vim.o.vb = true
 vim.o.clipboard = "unnamedplus"
-vim.o.textwidth = 0
-vim.o.colorcolumn = "+1"
 vim.o.grepprg = "rg"
-vim.o.background = "dark"
+vim.g.termguicolors = true
 
 
-vim.g.onedark_termcolors = 256
-
-vim.cmd "colorscheme liquidcarbon"
+vim.cmd [[colorscheme melange]]
 
 vim.g.airline_powerline_fonts = 1
-vim.g.airline_theme = 'minimalist'
+vim.g.airline_theme = 'moonfly'

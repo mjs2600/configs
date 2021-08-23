@@ -24,10 +24,15 @@ return require('packer').startup(function()
   use 'tpope/vim-surround'
 
   use 'edkolev/tmuxline.vim'
-  use 'vim-scripts/Liquid-Carbon'
+
+  use 'savq/melange'
+  use 'fenetikm/falcon'
+  use 'bluz71/vim-moonfly-colors'
+
   use 'ryanoasis/vim-devicons'
   use 'ludovicchabant/vim-gutentags'
   use 'sheerun/vim-polyglot'
+  use 'JuliaEditorSupport/julia-vim'
   use 'niklasl/vim-rdf'
   use 'rvesse/vim-sparql'
   use 'gleam-lang/gleam.vim'
