@@ -1,5 +1,6 @@
 "~/":
   - ".tmux.conf"
+  - ".tmux-line.conf"
 "~/.config/fish/":
   - "config.fish"
 "~/.config/nvim/":

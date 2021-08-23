@@ -56,4 +56,6 @@ return require('packer').startup(function()
         }
   end
   }
+
+  use 'ggandor/lightspeed.nvim'
 end)
