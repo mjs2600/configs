@@ -17,9 +17,12 @@ vim.o.vb = true
 vim.o.clipboard = "unnamedplus"
 vim.o.grepprg = "rg"
 vim.g.termguicolors = true
+vim.o.termguicolors = true
+vim.g.falcon_background = 0
+vim.g.falcon_inactive = 1
 
 
-vim.cmd [[colorscheme melange]]
+vim.cmd [[colorscheme falcon]]
 
 vim.g.airline_powerline_fonts = 1
-vim.g.airline_theme = 'moonfly'
+vim.g.airline_theme = 'falcon'
