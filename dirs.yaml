@@ -7,3 +7,6 @@
   - "coc-settings.json"
   - "init.vim"
   - "lua"
+"~/.config/kitty/":
+  - "kitty.conf"
+  - "kitty-theme.conf"
