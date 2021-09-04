@@ -28,7 +28,7 @@ return require('packer').startup(function()
   use 'savq/melange'
   use 'fenetikm/falcon'
   use 'ishan9299/nvim-solarized-lua'
-  use 'bluz71/vim-moonfly-colors'
+  use 'arcticicestudio/nord-vim'
 
   use 'ryanoasis/vim-devicons'
   use 'ludovicchabant/vim-gutentags'
