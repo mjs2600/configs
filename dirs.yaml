@@ -12,3 +12,5 @@
   - "kitty-theme.conf"
 "~/.dir_colors/":
   - "nord-dircolors/src/dir_colors"
+"~/.tmux/plugins/tpm/":
+  - "tpm/"
