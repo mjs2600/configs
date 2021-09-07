@@ -1,6 +1,7 @@
 "~/":
   - ".tmux.conf"
   - ".tmux-line.conf"
+  - ".dir_colors"
 "~/.config/fish/":
   - "config.fish"
 "~/.config/nvim/":
@@ -10,7 +11,5 @@
 "~/.config/kitty/":
   - "kitty.conf"
   - "kitty-theme.conf"
-"~/.dir_colors/":
-  - "nord-dircolors/src/dir_colors"
-"~/.tmux/plugins/tpm/":
-  - "tpm/"
+"~/.tmux/plugins":
+  - "tpm"
