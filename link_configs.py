@@ -24,7 +24,7 @@ def main():
         destination_dir = Path(os.path.expanduser(dir))
         destination_dir.mkdir(parents=True, exist_ok=True)
         for file in files:
-            target_file = destination_dir / file
+            target_file = destination_dir / os.path.basename(file)
             source_file = config_dir / file
             if link_required(source_file, target_file):
                 target_file.symlink_to(source_file)
