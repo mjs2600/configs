@@ -19,7 +19,7 @@ set -gx EDITOR nvim
 
 if status --is-interactive; and test -z "$TMUX"
   if test -n "$SSH_CONNECTION"
-    exec tmux new -A -s ssh
+    exec tmux new -A -s (hostname)
   else
     exec tmux new -A -s local
   end
