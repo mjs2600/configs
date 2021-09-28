@@ -26,3 +26,4 @@ vim.cmd [[colorscheme nord]]
 
 vim.g.airline_powerline_fonts = 1
 vim.g.airline_theme = 'nord'
+vim.g.lightline = {colorscheme='nord'}
