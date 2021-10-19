@@ -13,9 +13,9 @@ return require('packer').startup(function()
   use 'wbthomason/packer.nvim'
   use 'vimwiki/vimwiki'
 
-  -- use 'vim-airline/vim-airline'
-  -- use 'vim-airline/vim-airline-themes'
-  use 'itchyny/lightline.vim'
+  use 'vim-airline/vim-airline'
+  use 'vim-airline/vim-airline-themes'
+  -- use 'itchyny/lightline.vim'
   use {'rizzatti/dash.vim', opt=true, cmd={'Dash'}}
   use 'machakann/vim-highlightedyank'
 
