@@ -5,6 +5,7 @@ vim.g.coc_global_extensions = {
       'coc-json',
       'coc-julia',
       'coc-lua',
+      'coc-elixir',
       'coc-markdownlint',
       'coc-pyright',
       'coc-rust-analyzer',
