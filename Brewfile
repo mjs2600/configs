@@ -1,0 +1,12 @@
+brew "datasette"
+brew "direnv"
+brew "jq"
+brew "lua"
+brew "neovim"
+brew "ripgrep"
+brew "sqlite"
+
+cask "1password"
+cask "docker"
+cask "font-jetbrainsmono-nerd-font"
+cask "kitty"
