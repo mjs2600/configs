@@ -321,15 +321,21 @@
         "options": {
           "full_name": "font-jetbrainsmono-nerd-font"
         }
+      },
+      "signal": {
+        "version": "5.28.0",
+        "options": {
+          "full_name": "signal"
+        }
       }
     }
   },
   "system": {
     "macos": {
       "big_sur": {
-        "HOMEBREW_VERSION": "3.3.9-176-g33d7651",
+        "HOMEBREW_VERSION": "3.3.10-39-g9a5a1d1",
         "HOMEBREW_PREFIX": "/usr/local",
-        "Homebrew/homebrew-core": "7b6849f77b6cf38114ce2781fa4c308c17a556be",
+        "Homebrew/homebrew-core": "43ca19283b3999cf797927e3c6445bdbed0dbaa7",
         "CLT": "13.0.0.0.1.1630607135",
         "Xcode": "13.1",
         "macOS": "11.6"
