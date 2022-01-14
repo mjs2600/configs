@@ -4,7 +4,7 @@ import os
 import sys
 from pathlib import Path
 
-from sh import brew, pip
+from sh import pip
 
 CONFIG_DIR: Path = Path(__file__).resolve().parent
 
@@ -17,7 +17,9 @@ def link_required(source_file: Path, target_file: Path) -> bool:
     return True
 
 def mac_setup():
-    print(f"Updating brew bundle")
+    from sh import brew
+
+    print(f"Updating Brew Bundle")
     print(brew.bundle(file=CONFIG_DIR / 'Brewfile'))
 
 def main():
