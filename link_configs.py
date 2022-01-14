@@ -8,6 +8,9 @@ from sh import pip
 
 CONFIG_DIR: Path = Path(__file__).resolve().parent
 
+def preflight():
+    pip.install("pyyaml")
+
 def link_required(source_file: Path, target_file: Path) -> bool:
     if target_file.exists():
         if target_file.readlink() == source_file:
@@ -23,7 +26,6 @@ def mac_setup():
     print(brew.bundle(file=CONFIG_DIR / 'Brewfile'))
 
 def main():
-    pip.install("pyyaml")
     import yaml
 
     with open(CONFIG_DIR / "dirs.yaml") as f:
@@ -45,4 +47,5 @@ def main():
         mac_setup()
 
 if __name__ == "__main__":
+    preflight()
     main()
