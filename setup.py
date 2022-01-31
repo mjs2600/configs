@@ -8,22 +8,26 @@ from sh import pip
 
 CONFIG_DIR: Path = Path(__file__).resolve().parent
 
+
 def preflight():
     pip.install("pyyaml")
 
+
 def link_required(source_file: Path, target_file: Path) -> bool:
     if target_file.exists():
-        if target_file.readlink() == source_file:
+        if os.path.realpath(target_file) == os.path.realpath(source_file):
             return False
         target_file.unlink()
 
     return True
 
+
 def mac_setup():
     from sh import brew
 
     print(f"Updating Brew Bundle")
-    print(brew.bundle(file=CONFIG_DIR / 'Brewfile'))
+    print(brew.bundle(file=CONFIG_DIR / "Brewfile"))
+
 
 def main():
     import yaml
@@ -45,6 +49,7 @@ def main():
 
     if sys.platform == "darwin":
         mac_setup()
+
 
 if __name__ == "__main__":
     preflight()
