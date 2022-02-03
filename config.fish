@@ -28,6 +28,7 @@ end
 # Created by `pipx` on 2021-03-24 14:21:05
 set PATH $PATH /home/michael/.local/bin
 
+direnv hook fish | source
 
 # Aliases
 alias m4b-tool='docker run -it --rm -u (id -u):(id -g) -v (pwd):/mnt m4b-tool'
