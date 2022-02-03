@@ -29,7 +29,9 @@ return require('packer').startup(function()
   use 'savq/melange'
   use 'fenetikm/falcon'
   use 'ishan9299/nvim-solarized-lua'
+
   use 'arcticicestudio/nord-vim'
+  use 'andersevenrud/nordic.nvim'
 
   use 'ryanoasis/vim-devicons'
   use 'ludovicchabant/vim-gutentags'
