@@ -24,14 +24,34 @@ vim.g.falcon_inactive = 1
 
 vim.cmd [[colorscheme nord]]
 
-vim.g.airline_powerline_fonts = 1
-vim.g.airline_theme = 'nord'
+vim.g.nord_contrast = true
+vim.g.nord_borders = true
 
-require('nordic').colorscheme({
-    underline_option = 'undercurl',
-    italic = true,
-    italic_comments = true,
-    minimal_mode = false,
-    alternate_backgrounds = false
-})
-
+require('lualine').setup {
+  options = {
+    icons_enabled = true,
+    theme = 'auto',
+    component_separators = { left = '', right = ''},
+    section_separators = { left = '', right = ''},
+    disabled_filetypes = {},
+    always_divide_middle = true,
+  },
+  sections = {
+    lualine_a = {'mode'},
+    lualine_b = {'branch', 'diff', 'diagnostics'},
+    lualine_c = {'filename'},
+    lualine_x = {'encoding', 'fileformat', 'filetype'},
+    lualine_y = {'progress'},
+    lualine_z = {'location'}
+  },
+  inactive_sections = {
+    lualine_a = {},
+    lualine_b = {},
+    lualine_c = {'filename'},
+    lualine_x = {'location'},
+    lualine_y = {},
+    lualine_z = {}
+  },
+  tabline = {},
+  extensions = {}
+}

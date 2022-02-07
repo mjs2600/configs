@@ -13,9 +13,6 @@ return require('packer').startup(function()
   use 'wbthomason/packer.nvim'
   use 'vimwiki/vimwiki'
 
-  use 'vim-airline/vim-airline'
-  use 'vim-airline/vim-airline-themes'
-  -- use 'itchyny/lightline.vim'
   use {'rizzatti/dash.vim', opt=true, cmd={'Dash'}}
   use 'machakann/vim-highlightedyank'
 
@@ -24,27 +21,25 @@ return require('packer').startup(function()
   use 'tpope/vim-fugitive'
   use 'tpope/vim-surround'
 
-  use 'edkolev/tmuxline.vim'
+  -- use 'edkolev/tmuxline.vim'
 
-  use 'savq/melange'
-  use 'fenetikm/falcon'
-  use 'ishan9299/nvim-solarized-lua'
+  use 'shaunsingh/nord.nvim'
+  use {
+    'nvim-lualine/lualine.nvim',
+    requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+  }
 
-  use 'arcticicestudio/nord-vim'
-  use 'andersevenrud/nordic.nvim'
-
-  use 'ryanoasis/vim-devicons'
+  -- use 'ryanoasis/vim-devicons'
   use 'ludovicchabant/vim-gutentags'
   use 'sheerun/vim-polyglot'
   use 'JuliaEditorSupport/julia-vim'
   use 'niklasl/vim-rdf'
   use 'rvesse/vim-sparql'
-  use 'gleam-lang/gleam.vim'
   use {'christoomey/vim-tmux-navigator', opt=true, cmd={'TmuxNavigateLeft', 'TmuxNavigateDown', 'TmuxNavigateUp', 'TmuxNavigateRight'}}
 
   use {'mbbill/undotree', opt=true, cmd={'UndotreeToggle'}}
   use {'majutsushi/tagbar', opt=true, cmd={'TagbarToggle'}}
-  use {'google/vim-jsonnet', ft='jsonnet'}
+  -- use {'google/vim-jsonnet', ft='jsonnet'}
   use {'neoclide/coc.nvim', branch='release'}
   -- use 'neovim/nvim-lspconfig'
 

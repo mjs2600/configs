@@ -35,7 +35,7 @@ autocmd FileType rust noremap <buffer> <leader><space> :!cargo test<cr>
 
 " let g:gutentags_modules = ['ctags', 'gtags_cscope']
 let g:gutentags_cache_dir = '~/.tags_cache'
-set statusline+=%{gutentags#statusline()}
+" set statusline+=%{gutentags#statusline()}
 
 let g:LatexBox_latexmk_async = 1
 
@@ -142,7 +142,7 @@ command! -nargs=? Fold :call     CocAction('fold', <f-args>)
 command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
 
 " Add status line support, for integration with other plugin, checkout `:h coc-status`
-set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
+" set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
 " Using CocList
 " Show all diagnostics

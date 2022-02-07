@@ -1,8 +1,4 @@
 {
-  "sql.database": "mysql",
-  "sql.formatOptions": {
-    "language": "mysql"
-  },
   "python.formatting.provider": "black",
   "languageserver": {
     "zls": {
