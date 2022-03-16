@@ -860,13 +860,13 @@
         }
       },
       "1password": {
-        "version": "7.9.2",
+        "version": "7.9.3",
         "options": {
           "full_name": "1password"
         }
       },
       "docker": {
-        "version": "4.5.0,74594",
+        "version": "4.6.0,75818",
         "options": {
           "full_name": "docker"
         }
@@ -884,7 +884,7 @@
         }
       },
       "1password-cli": {
-        "version": "1.12.4",
+        "version": "2.0.0",
         "options": {
           "full_name": "1password-cli"
         }
@@ -902,9 +902,9 @@
         "macOS": "11.6.2"
       },
       "monterey": {
-        "HOMEBREW_VERSION": "3.4.1-54-gfbc5b11",
+        "HOMEBREW_VERSION": "3.4.2",
         "HOMEBREW_PREFIX": "/usr/local",
-        "Homebrew/homebrew-core": "47905a4b4f51064aa288317f178df16ceee1d432",
+        "Homebrew/homebrew-core": "6decdd1dc78f2b429f341135df938a97adca688d",
         "CLT": "13.2.0.0.1.1638488800",
         "Xcode": "13.2.1",
         "macOS": "12.2.1"
