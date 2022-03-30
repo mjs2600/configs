@@ -1,3 +1,5 @@
+keychain ~/.ssh/id_rsa
+. ~/.keychain/*-fish
 if not functions -q fundle; eval (curl -sfL https://git.io/fundle-install); end
 
 fundle plugin 'danhper/fish-ssh-agent'
