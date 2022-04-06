@@ -2,6 +2,7 @@
   - ".tmux.conf"
   - ".tmux-line.conf"
   - ".dir_colors"
+  - ".doom.d"
 "~/.config/fish/":
   - "config.fish"
 "~/.config/nvim/":
