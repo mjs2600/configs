@@ -29,7 +29,7 @@ return require('packer').startup(function()
     requires = { 'kyazdani42/nvim-web-devicons', opt = true }
   }
 
-  use {'soywod/himalaya', rtp="vim"}
+  -- use {'soywod/himalaya', rtp="vim"}
   -- use 'ryanoasis/vim-devicons'
   use 'ludovicchabant/vim-gutentags'
   use 'sheerun/vim-polyglot'
@@ -67,4 +67,7 @@ return require('packer').startup(function()
   }
 
   use 'ggandor/lightspeed.nvim'
+
+  use 'Olical/aniseed'
+  use 'Olical/conjure'
 end)

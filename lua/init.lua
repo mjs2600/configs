@@ -3,6 +3,7 @@ vim.g.maplocalleader = ','
 
 require('plugins')
 require('plugins-load')
+
 require('display')
 require('wiki')
 require('coc-config')
