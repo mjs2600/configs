@@ -1,5 +1,11 @@
 lua require('init')
 
+"PackerSync
+
+" let g:aniseed#env = v:true
+
+" lua require('aniseed.env').init()
+
 silent !mkdir -p ~/.vim/undo > /dev/null 2>&1
 
 syntax enable

@@ -58,16 +58,18 @@ return require('packer').startup(function()
     'nvim-treesitter/nvim-treesitter',
     run = ':TSUpdate'
   }
-  use {'kristijanhusak/orgmode.nvim', config = function()
-        require('orgmode').setup{
-            org_agenda_files = {'~/knowledge-graph/org/**/*'},
-            org_default_notes_file = '~/knowledge-graph/README.org',
-        }
-  end
-  }
+  -- use {'kristijanhusak/orgmode.nvim', config = function()
+  --       require('orgmode').setup_ts_grammar()
+  --       require('orgmode').setup{
+  --           org_agenda_files = {'~/knowledge-graph/org/**/*'},
+  --           org_default_notes_file = '~/knowledge-graph/README.org',
+  --       }
+  -- end
+  -- }
 
   use 'ggandor/lightspeed.nvim'
 
   use 'Olical/aniseed'
   use 'Olical/conjure'
+  use 'rktjmp/hotpot.nvim'
 end)

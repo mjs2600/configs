@@ -3,3 +3,4 @@
 
 local packer_compiled = vim.fn.stdpath('config') .. '/plugin/packer_compiled.lua'
 vim.cmd('luafile'  .. packer_compiled)
+require("hotpot")
