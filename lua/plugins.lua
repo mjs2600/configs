@@ -58,6 +58,8 @@ return require('packer').startup(function()
     'nvim-treesitter/nvim-treesitter',
     run = ':TSUpdate'
   }
+  use "IndianBoy42/tree-sitter-just"
+
   -- use {'kristijanhusak/orgmode.nvim', config = function()
   --       require('orgmode').setup_ts_grammar()
   --       require('orgmode').setup{
