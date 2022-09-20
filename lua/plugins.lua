@@ -74,4 +74,6 @@ return require('packer').startup(function()
   use 'Olical/aniseed'
   use 'Olical/conjure'
   use 'rktjmp/hotpot.nvim'
+
+  use 'sukima/vim-tiddlywiki'
 end)
