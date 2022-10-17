@@ -76,4 +76,6 @@ return require('packer').startup(function()
   use 'rktjmp/hotpot.nvim'
 
   use 'sukima/vim-tiddlywiki'
+
+  -- use 'jooize/vim-colemak'
 end)
