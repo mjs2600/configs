@@ -1,11 +1,7 @@
 {
   "python.formatting.provider": "black",
-  "languageserver": {
-    "zls": {
-      "command": "zls",
-      "filetypes": [
-        "zig"
-      ]
-    }
-  }
+  "zig.enabled": true,
+  "zig.startUpMessage": true,
+  "zig.path": "/usr/bin/zls",
+  "zig.debugLog": false
 }
