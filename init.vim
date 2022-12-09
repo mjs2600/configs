@@ -175,5 +175,5 @@ nnoremap <silent> <leader>k  :<C-u>CocPrev<CR>
 nnoremap <silent> <leader>p  :<C-u>CocListResume<CR>
 
 augroup formatting
-  autocmd BufWrite * silent call CocAction('format')
+  autocmd BufWrite * silent call CocActionAsync('format')
 augroup END
