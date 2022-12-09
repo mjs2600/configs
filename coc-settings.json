@@ -7,5 +7,6 @@
         "zig"
       ]
     }
-  }
+  },
+  "snippets.ultisnips.pythonPrompt": false
 }
