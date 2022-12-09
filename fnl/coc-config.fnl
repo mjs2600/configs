@@ -14,5 +14,6 @@
       "coc-snippets"
       "coc-toml"
       "coc-tsserver"
-      "coc-yaml"]
+      "coc-yaml"
+      "coc-zig"]
 )

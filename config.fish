@@ -1,5 +1,5 @@
-keychain --agents "gpg,ssh" ~/.ssh/id_rsa 0B28528DFC618532A82411F872382B4C2A2D9393
-. ~/.keychain/*-fish
+keychain --agents "gpg,ssh" ~/.ssh/id_rsa 0B28528DFC618532A82411F872382B4C2A2D9393 &> /dev/null
+. ~/.keychain/*-fish &> /dev/null
 if not functions -q fundle; eval (curl -sfL https://git.io/fundle-install); end
 
 fundle plugin 'danhper/fish-ssh-agent'
