@@ -14,7 +14,6 @@ filetype detect
 highlight Normal ctermbg=NONE
 highlight nonText ctermbg=NONE
 
-
 func! DeleteTrailingWS()
   exe 'normal mz'
   %s/\s\+$//ge
@@ -23,7 +22,6 @@ endfunc
 augroup whitespace
   autocmd BufWrite * silent call DeleteTrailingWS()
 augroup END
-
 
 " Make
 autocmd FileType make setlocal noexpandtab softtabstop=0
@@ -67,14 +65,14 @@ inoremap <silent><expr> <TAB>
 
 function! s:check_back_space() abort
   let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
+  return !col || getline['.'](col - 1)  =~# '\s'
 endfunction
 
 let g:coc_snippet_next = '<tab>'
 
 function! s:check_back_space() abort
   let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
+  return !col || getline['.'](col - 1)  =~# '\s'
 endfunction
 
 " Use <c-space> to trigger completion.
@@ -175,5 +173,7 @@ nnoremap <silent> <leader>k  :<C-u>CocPrev<CR>
 nnoremap <silent> <leader>p  :<C-u>CocListResume<CR>
 
 augroup formatting
-  autocmd BufWrite * silent call CocActionAsync('format')
+  autocmd BufWritePre *.md,*.markdown call CocActionAsync('runCommand', 'markdownlint.fixAll')
+  autocmd BufWritePre * silent call CocActionAsync('format')
 augroup END
+

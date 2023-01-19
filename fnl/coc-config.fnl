@@ -8,6 +8,7 @@
       "coc-lua"
       "coc-elixir"
       "coc-markdownlint"
+      "coc-prettier"
       "coc-pyright"
       "coc-rust-analyzer"
       "coc-sh"
@@ -17,3 +18,7 @@
       "coc-yaml"
       "coc-zig"]
 )
+
+(set vim.g.coc_filetype_map
+     {"vimwiki" "markdown"}
+ )
