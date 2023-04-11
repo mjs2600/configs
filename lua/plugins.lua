@@ -77,5 +77,6 @@ return require('packer').startup(function()
 
   use 'sukima/vim-tiddlywiki'
 
+  use 'github/copilot.vim'
   -- use 'jooize/vim-colemak'
 end)

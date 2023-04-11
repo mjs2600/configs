@@ -16,7 +16,7 @@
 (vim.api.nvim_set_keymap "n" "<M-k>" ":TmuxNavigateUp<cr>" {"noremap" true "silent" true})
 (vim.api.nvim_set_keymap "n" "<M-l>" ":TmuxNavigateRight<cr>" {"noremap" true "silent" true})
 
-(vim.api.nvim_set_keymap "n" "<leader>$" ":setlocal spell! spelllang en_us<cr>" {"noremap" true})
+(vim.api.nvim_set_keymap "n" "<leader>$" ":setlocal spell! spelllang=en_us<cr>" {"noremap" true})
 (vim.api.nvim_set_keymap "n" "<leader>f" "<cmd>Telescope find_files<cr>" {"noremap" true})
 (vim.api.nvim_set_keymap "n" "<leader>b" "<cmd>Telescope buffers<cr>" {"noremap" true})
 (vim.api.nvim_set_keymap "n" "<leader>d" "<cmd>Telescope coc definitions<cr>" {"noremap" true})
