@@ -34,3 +34,5 @@ direnv hook fish | source
 
 # Aliases
 alias m4b-tool='docker run -it --rm -u (id -u):(id -g) -v (pwd):/mnt m4b-tool'
+
+set -q GHCUP_INSTALL_BASE_PREFIX[1]; or set GHCUP_INSTALL_BASE_PREFIX $HOME ; set -gx PATH $HOME/.cabal/bin /home/michael/.ghcup/bin $PATH # ghcup-env
