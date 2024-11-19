@@ -14,7 +14,14 @@ fundle plugin 'oh-my-fish/plugin-cd'
 fundle plugin 'oh-my-fish/plugin-fasd'
 fundle plugin 'oh-my-fish/plugin-archlinux'
 
-source ~/.asdf/asdf.fish
+if test -e ~/.asdf/asdf.fish
+  # Installed with git
+  source ~/.asdf/asdf.fish
+else
+  # Installed with Homebrew
+  source (brew --prefix asdf)"/libexec/asdf.fish"
+end
+
 starship init fish | source
 
 set -gx EDITOR nvim

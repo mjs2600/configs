@@ -3,13 +3,12 @@
   - ".tmux-line.conf"
   - ".dir_colors"
   - ".doom.d"
+  - ".zshrc"
 "~/.config/fish/":
   - "config.fish"
 "~/.config/nvim/":
-  - "coc-settings.json"
-  - "init.vim"
+  - "init.lua"
   - "lua"
-  - "fnl"
 "~/.config/kitty/":
   - "kitty.conf"
   - "kitty-theme.conf"
