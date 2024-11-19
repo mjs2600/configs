@@ -1,0 +1,12 @@
+"~/" = [
+  ".tmux.conf",
+  ".tmux-line.conf",
+  ".dir_colors",
+  ".doom.d",
+  ".zshrc"
+]
+"~/.config/fish/" = [ "config.fish" ]
+"~/.config/nvim/" = [ "init.lua", "lua" ]
+"~/.config/kitty/" = [ "kitty.conf", "kitty-theme.conf" ]
+"~/.tmux/plugins" = [ "tpm" ]
+

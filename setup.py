@@ -3,14 +3,10 @@
 import os
 import sys
 from pathlib import Path
-
-from sh import pip
+import tomllib
 
 CONFIG_DIR: Path = Path(__file__).resolve().parent
 
-
-def preflight():
-    pip.install("pyyaml")
 
 
 def link_required(source_file: Path, target_file: Path) -> bool:
@@ -32,8 +28,8 @@ def mac_setup():
 def main():
     import yaml
 
-    with open(CONFIG_DIR / "dirs.yaml") as f:
-        links = yaml.full_load(f)
+    with open(CONFIG_DIR / "dirs.toml", "rb") as f:
+        links = tomllib.load(f)
 
     for dir, files in links.items():
         destination_dir = Path(os.path.expanduser(dir))
@@ -52,5 +48,4 @@ def main():
 
 
 if __name__ == "__main__":
-    preflight()
     main()
