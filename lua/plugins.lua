@@ -1,6 +1,25 @@
 return {
 	'AndreM222/copilot-lualine',
-	'CopilotC-Nvim/CopilotChat.nvim',
+	{
+		'CopilotC-Nvim/CopilotChat.nvim',
+		branch = "canary",
+		dependencies = {
+			{ "github/copilot.vim" }, -- or zbirenbaum/copilot.lua
+			{ "nvim-lua/plenary.nvim" }, -- for curl, log wrapper
+		},
+		build = "make tiktoken", -- Only on MacOS or Linux
+		opts = {
+			window = {
+				layout = 'float',
+				relative = 'editor',
+				border = 'rounded',
+				width = 1,
+				height = 0.2,
+				row = vim.o.lines
+			}
+		},
+		-- See Commands section for default commands if you want to lazy load on them
+	},
 	'hrsh7th/cmp-buffer',
 	'hrsh7th/cmp-cmdline',
 	'hrsh7th/cmp-nvim-lsp',
@@ -36,7 +55,7 @@ return {
 			local configs = require("nvim-treesitter.configs")
 
 			configs.setup({
-				ensure_installed = {"lua", "query", "elixir", "heex", "javascript", "html", "python", "rust" },
+				ensure_installed = { "lua", "query", "elixir", "heex", "javascript", "html", "python", "rust" },
 				sync_install = false,
 				highlight = { enable = true },
 				indent = { enable = true },
