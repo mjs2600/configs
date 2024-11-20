@@ -49,12 +49,25 @@ require('mason-lspconfig').setup({
 				}
 			}
 		end,
+		["nextls"] = function()
+			require("lspconfig").nextls.setup({
+				cmd = { "nextls", "--stdio" },
+				init_options = {
+					extensions = {
+						credo = { enable = true }
+					},
+					experimental = {
+						completions = { enable = true }
+					}
+				}
+			})
+		end,
 	},
 	ensure_installed = {
 		"awk_ls",
 		"bashls",
-		"elixirls",
 		"lua_ls",
+		"nextls",
 		"pyright",
 		"ruff",
 		"rust_analyzer",
