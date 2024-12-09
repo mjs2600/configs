@@ -1,9 +1,0 @@
-{
-  "python.formatting.provider": "black",
-  "snippets.ultisnips.pythonPrompt": false,
-  "zig.enabled": true,
-  "zig.startUpMessage": true,
-  "zig.path": "/usr/bin/zls",
-  "zig.debugLog": false,
-  "elixir.pathToElixirLS": "~/.elixir-ls/release/language_server.sh"
-}
