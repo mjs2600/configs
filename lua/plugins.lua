@@ -21,6 +21,19 @@ return {
 		-- See Commands section for default commands if you want to lazy load on them
 	},
 	{
+		"alexghergh/nvim-tmux-navigation",
+		config = function()
+			require 'nvim-tmux-navigation'.setup {
+				keybindings = {
+					left = "<M-h>",
+					down = "<M-j>",
+					up = "<M-k>",
+					right = "<M-l>",
+				}
+			}
+		end
+	},
+	{
 		"epwalsh/obsidian.nvim",
 		version = "*", -- recommended, use latest release instead of latest commit
 		lazy = true,
