@@ -8,7 +8,6 @@ import tomllib
 CONFIG_DIR: Path = Path(__file__).resolve().parent
 
 
-
 def link_required(source_file: Path, target_file: Path) -> bool:
     if target_file.exists():
         if os.path.realpath(target_file) == os.path.realpath(source_file):
@@ -26,8 +25,6 @@ def mac_setup():
 
 
 def main():
-    import yaml
-
     with open(CONFIG_DIR / "dirs.toml", "rb") as f:
         links = tomllib.load(f)
 
