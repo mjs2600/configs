@@ -19,7 +19,7 @@ if test -e ~/.asdf/asdf.fish
   source ~/.asdf/asdf.fish
 else
   # Installed with Homebrew
-  source (brew --prefix asdf)"/libexec/asdf.fish"
+  source (brew --prefix asdf)"/asdf.fish"
 end
 
 starship init fish | source
