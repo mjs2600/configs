@@ -3,7 +3,6 @@ keychain --agents "gpg,ssh" ~/.ssh/id_rsa 0B28528DFC618532A82411F872382B4C2A2D93
 if not functions -q fundle; eval (curl -sfL https://git.io/fundle-install); end
 
 fundle plugin 'danhper/fish-ssh-agent'
-fundle plugin 'oh-my-fish/plugin-direnv'
 fundle plugin 'jethrokuan/fzf'
 fundle plugin 'oh-my-fish/plugin-rustup'
 fundle plugin 'oh-my-fish/plugin-python'
@@ -14,15 +13,8 @@ fundle plugin 'oh-my-fish/plugin-cd'
 fundle plugin 'oh-my-fish/plugin-fasd'
 fundle plugin 'oh-my-fish/plugin-archlinux'
 
-if test -e ~/.asdf/asdf.fish
-  # Installed with git
-  source ~/.asdf/asdf.fish
-else
-  # Installed with Homebrew
-  source (brew --prefix asdf)"/asdf.fish"
-end
-
 starship init fish | source
+mise activate fish | source
 
 set -gx EDITOR nvim
 
@@ -36,8 +28,6 @@ end
 
 # Created by `pipx` on 2021-03-24 14:21:05
 set PATH $PATH /home/michael/.local/bin
-
-direnv hook fish | source
 
 # Aliases
 alias m4b-tool='docker run -it --rm -u (id -u):(id -g) -v (pwd):/mnt m4b-tool'

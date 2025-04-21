@@ -73,14 +73,13 @@ ZSH_THEME="robbyrussell"
 
 plugins=( \
   1password \
-  asdf \
-  direnv \
   docker \
   fzf \
   gh \
   git \
   github \
   gitignore \
+  mise \
   npm \
   pip \
   poetry \
