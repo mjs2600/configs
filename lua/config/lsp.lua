@@ -1,59 +1,26 @@
--- Reserve a space in the gutter
--- This will avoid an annoying layout shift in the screen
+-- Reserve a space in the gutter to avoid layout shift
 vim.opt.signcolumn = 'yes'
 
--- This is where you enable features that only work
--- if there is a language server active in the file
+-- Buffer-local LSP keymaps. Navigation keymaps (gd, gD, gi, gr, gy) are
+-- intentionally omitted here — snacks.picker provides fuzzy-find versions
+-- in lua/plugins/snacks.lua. Format is on <leader>F (capital) so it doesn't
+-- shadow the <leader>f* snacks file-picker group.
 vim.api.nvim_create_autocmd('LspAttach', {
 	desc = 'LSP actions',
 	callback = function(event)
 		local opts = { buffer = event.buf }
-
-		vim.keymap.set('n', 'K', '<cmd>lua vim.lsp.buf.hover()<cr>', opts)
-		vim.keymap.set('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<cr>', opts)
-		vim.keymap.set('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<cr>', opts)
-		vim.keymap.set('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<cr>', opts)
-		vim.keymap.set('n', 'go', '<cmd>lua vim.lsp.buf.type_definition()<cr>', opts)
-		vim.keymap.set('n', 'gr', '<cmd>lua vim.lsp.buf.references()<cr>', opts)
-		vim.keymap.set('n', 'gs', '<cmd>lua vim.lsp.buf.signature_help()<cr>', opts)
-		vim.keymap.set('n', '<F2>', '<cmd>lua vim.lsp.buf.rename()<cr>', opts)
-		vim.keymap.set({ 'n', 'x' }, '<leader>f', '<cmd>lua vim.lsp.buf.format({async = true})<cr>', opts)
-		vim.keymap.set('n', '<F4>', '<cmd>lua vim.lsp.buf.code_action()<cr>', opts)
-	end
+		vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
+		vim.keymap.set('n', 'gs', vim.lsp.buf.signature_help, opts)
+		vim.keymap.set('n', '<F2>', vim.lsp.buf.rename, opts)
+		vim.keymap.set('n', '<F4>', vim.lsp.buf.code_action, opts)
+		vim.keymap.set({ 'n', 'x' }, '<leader>F', function()
+			vim.lsp.buf.format({ async = true })
+		end, opts)
+	end,
 })
 
 require('mason').setup({})
 require('mason-lspconfig').setup({
-	handlers = {
-		function(server_name)
-			require('lspconfig')[server_name].setup({})
-		end,
-		["lua_ls"] = function()
-			local lspconfig = require("lspconfig")
-			lspconfig.lua_ls.setup {
-				settings = {
-					Lua = {
-						diagnostics = {
-							globals = { "vim" }
-						}
-					}
-				}
-			}
-		end,
-		["nextls"] = function()
-			require("lspconfig").nextls.setup({
-				cmd = { "nextls", "--stdio" },
-				init_options = {
-					extensions = {
-						credo = { enable = true }
-					},
-					experimental = {
-						completions = { enable = true }
-					}
-				}
-			})
-		end,
-	},
 	ensure_installed = {
 		"awk_ls",
 		"bashls",
@@ -64,16 +31,39 @@ require('mason-lspconfig').setup({
 		"rust_analyzer",
 		"vale_ls",
 	},
+	handlers = {
+		function(server_name)
+			require('lspconfig')[server_name].setup({})
+		end,
+		["lua_ls"] = function()
+			require("lspconfig").lua_ls.setup({
+				settings = {
+					Lua = {
+						diagnostics = { globals = { "vim" } },
+					},
+				},
+			})
+		end,
+		["nextls"] = function()
+			require("lspconfig").nextls.setup({
+				cmd = { "nextls", "--stdio" },
+				init_options = {
+					extensions = { credo = { enable = true } },
+					experimental = { completions = { enable = true } },
+				},
+			})
+		end,
+	},
 })
 
--- Format the buffer before saving it
+-- Format on save (normal mode, modified, non-oil buffers)
 vim.api.nvim_create_autocmd("BufWritePre", {
 	callback = function()
-		local mode = vim.api.nvim_get_mode().mode
-		local filetype = vim.bo.filetype
-		if vim.bo.modified == true and mode == 'n' and filetype ~= "oil" then
-			vim.cmd('lua vim.lsp.buf.format()')
-		else
+		if vim.bo.modified
+			and vim.api.nvim_get_mode().mode == 'n'
+			and vim.bo.filetype ~= "oil"
+		then
+			vim.lsp.buf.format()
 		end
-	end
+	end,
 })

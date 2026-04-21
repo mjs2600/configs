@@ -1,34 +1,21 @@
+-- Only non-default options are set here; everything else uses lualine's
+-- defaults. `copilot` in lualine_x is provided by the copilot-lualine
+-- dependency listed in lua/plugins/lualine.lua.
 require("lualine").setup({
 	options = {
-		icons_enabled = true,
 		theme = 'nord',
-		component_separators = { left = '', right = '' },
-		section_separators = { left = '', right = '' },
-		disabled_filetypes = {},
-		always_divide_middle = true
+		component_separators = { left = '', right = '' },
+		section_separators = { left = '', right = '' },
 	},
 	sections = {
-		lualine_a = { 'mode' },
-		lualine_b = { 'branch', 'diff',
+		lualine_b = {
+			'branch',
+			'diff',
 			{
 				'diagnostics',
-				sources = { "nvim_diagnostic" },
-				symbols = { error = ' ', warn = ' ', info = ' ', hint = ' ' }
-			}
+				symbols = { error = ' ', warn = ' ', info = ' ', hint = ' ' },
+			},
 		},
-		lualine_c = { 'filename' },
-		lualine_x = { 'copilot', 'encoding', 'fileformat', 'filetype' }, -- I added copilot here
-		lualine_y = { 'progress' },
-		lualine_z = { 'location' }
+		lualine_x = { 'copilot', 'encoding', 'fileformat', 'filetype' },
 	},
-	inactive_sections = {
-		lualine_a = {},
-		lualine_b = {},
-		lualine_c = { 'filename' },
-		lualine_x = { 'location' },
-		lualine_y = {},
-		lualine_z = {}
-	},
-	tabline = {},
-	extensions = {}
 })
