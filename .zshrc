@@ -135,7 +135,8 @@ export PATH="$PATH:/Users/michael/.local/bin"
 export PATH="/Users/michael/.cargo/bin:$PATH"
 export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
 export PATH="/opt/homebrew/opt/rustup/bin:$PATH"
+export PATH="/Users/michael/.config/emacs/bin:$PATH"
 
 [ -f "/Users/michael/.ghcup/env" ] && . "/Users/michael/.ghcup/env" # ghcup-env
 
-eval "$(gh copilot alias -- zsh)"
+fpath+=~/.zfunc; autoload -Uz compinit; compinit
