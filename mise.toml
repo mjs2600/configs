@@ -1,9 +1,29 @@
 # Pinned tool versions installed by `mise install` (run via setup.py).
 #
 # Pinning to a major version (e.g. "22") gets you patch + minor updates on
-# `mise upgrade` but never a surprise major bump. Bump these intentionally.
+# `mise upgrade` but never a surprise major bump. Bump these intentionally
+# with `mise use TOOL@NEW_MAJOR`.
+
 [tools]
+# Languages
 node = "22"     # current LTS
-python = "3.13" # latest stable; 3.14 is fine to bump to when you're ready
+python = "3.13" # latest stable
 rust = "stable" # rustup's stable channel
-lua = "5.4"     # current stable Lua
+lua = "5.4"
+
+# CLI tools — pinned to current major. Major versions of these have all
+# shipped breaking changes in the past (CLI flags, config formats, output).
+# Pre-1.0 tools track `latest` since their public APIs are still moving;
+# neovim is the exception (its 0.x minors are effectively majors).
+bat = "latest"
+fd = "10"
+fzf = "latest"
+jq = "1"
+just = "1"
+neovim = "0.12"   # nvim minor versions are effectively majors
+ripgrep = "15"
+sd = "1"
+starship = "1"
+tmux = "3"
+uv = "latest"
+zoxide = "latest"

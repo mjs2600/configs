@@ -13,11 +13,14 @@ cd ~/configs
 This will:
 
 1. Symlink everything in [`dirs.toml`](dirs.toml) into your `$HOME`.
-2. Install OS packages — Homebrew on macOS via [`Brewfile`](Brewfile),
-   or apt/dnf/pacman on Linux (just enough to bootstrap `mise`).
-3. Install pinned language toolchains via [`mise.toml`](mise.toml).
+2. Install OS packages — Homebrew on macOS via [`Brewfile`](Brewfile)
+   (GUI apps, fonts, system integrations), or just `git curl fish tmux`
+   on Linux to bootstrap mise.
+3. Install all CLI tools and language toolchains via
+   [`mise.toml`](mise.toml) — same versions on every machine.
 4. Install tmux plugins (TPM), Neovim plugins (lazy.nvim), and fish
    plugins (fundle).
+5. Run `just tend` to regenerate aliases.
 
 Idempotent — re-run any time to reconcile.
 
@@ -42,8 +45,9 @@ just links      # re-link symlinks only
 | `.zshrc` | Zsh fallback |
 | `.tmux.conf`, `.tmux-line.conf`, `tpm/` | tmux + TPM submodule |
 | `kitty.conf`, `kitty-theme.conf` | Kitty terminal |
-| `Brewfile` | macOS packages |
-| `mise.toml` | Cross-platform language toolchains |
+| `Brewfile` | macOS GUI apps, fonts, system integrations |
+| `mise.toml` | Cross-platform CLI tools and language toolchains |
+| `aliases.toml` | Source of truth for shell aliases |
 | `dirs.toml` | Symlink map for setup.py |
 | `.dir_colors`, `.doom.d/` | Misc |
 

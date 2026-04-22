@@ -74,7 +74,6 @@ ZSH_THEME="robbyrussell"
 plugins=( \
   1password \
   docker \
-  fzf \
   gh \
   git \
   github \
@@ -128,16 +127,21 @@ source <(harness completion zsh)
 alias h=harness
 compdef h=harness
 
+# mise shims first on PATH so its tools win over any leftover system copies
+command -v mise >/dev/null && eval "$(mise activate zsh)"
+
+# fzf key bindings & completion (mise's fzf binary supports --zsh natively)
+command -v fzf >/dev/null && source <(fzf --zsh)
+
 eval "$(starship init zsh)"
 
-# Created by `pipx` on 2024-04-04 18:02:57
-export PATH="$PATH:/Users/michael/.local/bin"
-export PATH="/Users/michael/.cargo/bin:$PATH"
+# Removed obsolete brew rustup PATH entry — rust now comes from mise.
+export PATH="$PATH:$HOME/.local/bin"
+export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
-export PATH="/opt/homebrew/opt/rustup/bin:$PATH"
-export PATH="/Users/michael/.config/emacs/bin:$PATH"
+export PATH="$HOME/.config/emacs/bin:$PATH"
 
-[ -f "/Users/michael/.ghcup/env" ] && . "/Users/michael/.ghcup/env" # ghcup-env
+[ -f "$HOME/.ghcup/env" ] && . "$HOME/.ghcup/env" # ghcup-env
 
 fpath+=~/.zfunc; autoload -Uz compinit; compinit
 

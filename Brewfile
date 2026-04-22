@@ -1,27 +1,22 @@
+# macOS-only packages.
+# Cross-platform CLI tools live in mise.toml so they install identically on
+# Linux too.
+
+# Bootstraps everything else
 brew "mise"
+
+# System integration / things mise can't (or shouldn't) provide
+brew "keychain"
+
+# Niche apps you actually use (trim freely)
 brew "autossh"
-brew "bat"
 brew "datasette"
-brew "fd"
-brew "fzf"
 brew "iredis"
 brew "jc"
-brew "jq"
-brew "just"
-brew "keychain"
 brew "litecli"
-brew "lua"
 brew "ncspot"
-brew "neovim"
 brew "redis"
-brew "ripgrep"
-brew "rustup-init"
-brew "sd"
 brew "sqlite"
-brew "starship"
-brew "tmux"
-brew "uv"
-brew "zoxide"
 
 cask "1password"
 cask "1password-cli"

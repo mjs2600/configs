@@ -9,4 +9,5 @@
 "~/.config/fish/" = ["config.fish", "aliases.fish"]
 "~/.config/nvim/" = ["init.lua", "lua"]
 "~/.config/kitty/" = ["kitty.conf", "kitty-theme.conf"]
+"~/.config/mise/" = [{ src = "mise.toml", dst = "config.toml" }]
 "~/.tmux/plugins" = ["tpm"]

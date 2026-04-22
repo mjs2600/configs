@@ -3,13 +3,13 @@
 Bootstrap this configs repo on a new machine.
 
   1. Symlink files listed in dirs.toml into their destinations.
-  2. Install OS-level packages (Homebrew on macOS; apt/dnf/pacman on Linux,
-     limited to the small set of packages needed to bootstrap mise).
-  3. Ensure mise and uv are installed (via official install scripts if not
-     already present).
-  4. Install language/tool versions via mise (if mise.toml is present).
+  2. Install OS-level packages — Homebrew on macOS via Brewfile, or just
+     enough on Linux (git, curl, fish, tmux) to bootstrap mise.
+  3. Ensure mise is installed (via official install script if not present).
+  4. Install all CLI tools and language toolchains via `mise install`.
   5. Install tmux plugins (TPM submodule) and Neovim plugins (lazy.nvim).
-  6. Install fish plugins via fundle (if fish is installed).
+  6. Install fish plugins via fundle.
+  7. Run `just tend` to regenerate aliases and upgrade everything.
 
 Usage:
     ./setup.py           # do everything
@@ -27,9 +27,8 @@ from pathlib import Path
 
 CONFIG_DIR = Path(__file__).resolve().parent
 
-# Minimum set of system packages required to bootstrap everything else.
-# On macOS we rely on Brewfile instead; on Linux we install via the system
-# package manager.
+# Minimal Linux bootstrap: just enough to run fish/tmux and to fetch mise,
+# which then installs everything else cross-platform via mise.toml.
 LINUX_BOOTSTRAP_PACKAGES = ["git", "curl", "fish", "tmux", "build-essential"]
 
 
@@ -52,12 +51,18 @@ def link_files() -> None:
     for dest_dir, files in links.items():
         destination_dir = Path(dest_dir).expanduser()
         destination_dir.mkdir(parents=True, exist_ok=True)
-        for file in files:
-            source = CONFIG_DIR / file
+        for entry in files:
+            # Entry is either "filename" (kept as-is) or {src, dst} for renames.
+            if isinstance(entry, dict):
+                source = CONFIG_DIR / entry["src"]
+                target = destination_dir / entry["dst"]
+            else:
+                source = CONFIG_DIR / entry
+                target = destination_dir / Path(entry).name
+
             if not source.exists():
                 print(f"⚠️  Skipping missing source: {source}")
                 continue
-            target = destination_dir / Path(file).name
             if target.is_symlink() or target.exists():
                 if target.resolve() == source.resolve():
                     print(f"🔗 Already linked:  {target}")
@@ -109,20 +114,6 @@ def ensure_mise() -> None:
     print("ℹ️  Installing mise via https://mise.run")
     # `curl <url> | sh` via shell, since piping requires a shell.
     run(["sh", "-c", "curl -fsSL https://mise.run | sh"])
-
-
-def ensure_uv() -> None:
-    if have("uv"):
-        return
-    print("ℹ️  Installing uv via https://astral.sh/uv/install.sh")
-    run(["sh", "-c", "curl -fsSL https://astral.sh/uv/install.sh | sh"])
-
-
-def ensure_starship() -> None:
-    if have("starship"):
-        return
-    print("ℹ️  Installing starship via https://starship.rs/install.sh")
-    run(["sh", "-c", "curl -fsSL https://starship.rs/install.sh | sh -s -- --yes"])
 
 
 def install_mise_tools() -> None:
@@ -194,8 +185,6 @@ def main() -> None:
 
     install_packages()
     ensure_mise()
-    ensure_uv()
-    ensure_starship()
     install_mise_tools()
     install_tmux_plugins()
     install_fish_plugins()
