@@ -166,6 +166,19 @@ def install_fish_plugins() -> None:
     run(["fish", "-c", "fundle install"])
 
 
+def tend() -> None:
+    """Run `just tend` if just is available; the bootstrap steps above are
+    enough on their own, but `tend` also generates aliases and upgrades
+    everything to current versions."""
+    if have("just"):
+        run(["just", "tend"], cwd=CONFIG_DIR)
+    else:
+        # Fallback: at least regenerate aliases so the shell files exist.
+        gen = CONFIG_DIR / "scripts" / "gen_aliases.py"
+        if gen.exists():
+            run([str(gen)])
+
+
 # --------------------------------------------------------------------------- #
 # Entry point
 # --------------------------------------------------------------------------- #
@@ -187,6 +200,7 @@ def main() -> None:
     install_tmux_plugins()
     install_fish_plugins()
     install_nvim_plugins()
+    tend()
 
 
 if __name__ == "__main__":

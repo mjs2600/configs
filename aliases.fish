@@ -1,0 +1,20 @@
+# AUTO-GENERATED from aliases.toml by scripts/gen_aliases.py.
+# Edit aliases.toml and run `just gen-aliases` (or `just tend`).
+
+command -q tmux; and abbr -a t 'tmux new -As local'
+command -q tmux; and abbr -a ta 'tmux attach -t'
+command -q tmux; and abbr -a tl 'tmux list-sessions'
+command -q tmux; and abbr -a tk 'tmux kill-session -t'
+command -q nvim; and abbr -a v 'nvim'
+command -q nvim; and abbr -a vi 'nvim'
+command -q bat; and alias cat 'bat'
+command -q fd; and alias find 'fd'
+command -q rg; and alias grep 'rg'
+abbr -a g 'git'
+abbr -a gs 'git status'
+abbr -a gd 'git diff'
+abbr -a gl 'git log --oneline --graph --decorate'
+abbr -a gp 'git pull'
+abbr -a gP 'git push'
+abbr -a gco 'git checkout'
+abbr -a gcm 'git commit -m'

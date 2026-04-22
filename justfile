@@ -19,8 +19,12 @@ links:
     ./setup.py --links
 
 # Update every managed surface in one go
-tend: brew-update mise-update nvim-update tmux-update fish-update
+tend: links gen-aliases brew-update mise-update nvim-update tmux-update fish-update
     @echo "🌿 Tended."
+
+# Regenerate aliases.fish and aliases.sh from aliases.toml
+gen-aliases:
+    @./scripts/gen_aliases.py
 
 brew-update:
     @command -v brew >/dev/null && brew bundle --file=Brewfile && brew upgrade || true

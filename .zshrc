@@ -140,3 +140,6 @@ export PATH="/Users/michael/.config/emacs/bin:$PATH"
 [ -f "/Users/michael/.ghcup/env" ] && . "/Users/michael/.ghcup/env" # ghcup-env
 
 fpath+=~/.zfunc; autoload -Uz compinit; compinit
+
+# Cross-shell aliases (mirrored in aliases.fish)
+[ -f "$HOME/aliases.sh" ] && source "$HOME/aliases.sh"

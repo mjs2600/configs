@@ -76,11 +76,9 @@ fish_add_path -g $HOME/.cabal/bin
 fish_add_path -g $HOME/.ghcup/bin
 
 # ---------------------------------------------------------------------------
-# Aliases
+# Aliases & abbreviations
 # ---------------------------------------------------------------------------
-if command -q docker
-    alias m4b-tool='docker run -it --rm -u (id -u):(id -g) -v (pwd):/mnt m4b-tool'
-end
+test -f $__fish_config_dir/aliases.fish; and source $__fish_config_dir/aliases.fish
 
 # ghcup
 set -q GHCUP_INSTALL_BASE_PREFIX[1]; or set GHCUP_INSTALL_BASE_PREFIX $HOME

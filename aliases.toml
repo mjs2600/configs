@@ -1,0 +1,106 @@
+# Single source of truth for shell aliases.
+# Run `just gen-aliases` (or `just tend`) to regenerate aliases.fish and
+# aliases.sh from this file.
+#
+# Each entry has:
+#   name    = command typed at the prompt
+#   value   = full command it expands to
+#   needs   = (optional) binary that must exist for the alias to be defined
+#   abbr    = (optional) if true, fish uses `abbr` (visible expansion);
+#             if false or omitted, fish uses `alias`. zsh/bash always
+#             use `alias` since they have no equivalent.
+
+# ── tmux ──
+[[alias]]
+name  = "t"
+value = "tmux new -As local"
+needs = "tmux"
+abbr  = true
+
+[[alias]]
+name  = "ta"
+value = "tmux attach -t"
+needs = "tmux"
+abbr  = true
+
+[[alias]]
+name  = "tl"
+value = "tmux list-sessions"
+needs = "tmux"
+abbr  = true
+
+[[alias]]
+name  = "tk"
+value = "tmux kill-session -t"
+needs = "tmux"
+abbr  = true
+
+# ── editors ──
+[[alias]]
+name  = "v"
+value = "nvim"
+needs = "nvim"
+abbr  = true
+
+[[alias]]
+name  = "vi"
+value = "nvim"
+needs = "nvim"
+abbr  = true
+
+# ── modern replacements ──
+[[alias]]
+name  = "cat"
+value = "bat"
+needs = "bat"
+
+[[alias]]
+name  = "find"
+value = "fd"
+needs = "fd"
+
+[[alias]]
+name  = "grep"
+value = "rg"
+needs = "rg"
+
+# ── git ──
+[[alias]]
+name  = "g"
+value = "git"
+abbr  = true
+
+[[alias]]
+name  = "gs"
+value = "git status"
+abbr  = true
+
+[[alias]]
+name  = "gd"
+value = "git diff"
+abbr  = true
+
+[[alias]]
+name  = "gl"
+value = "git log --oneline --graph --decorate"
+abbr  = true
+
+[[alias]]
+name  = "gp"
+value = "git pull"
+abbr  = true
+
+[[alias]]
+name  = "gP"
+value = "git push"
+abbr  = true
+
+[[alias]]
+name  = "gco"
+value = "git checkout"
+abbr  = true
+
+[[alias]]
+name  = "gcm"
+value = "git commit -m"
+abbr  = true
