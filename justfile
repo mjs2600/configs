@@ -55,7 +55,12 @@ doctor:
     @echo "── tools ──"
     @for t in brew mise uv starship nvim tmux fish git; do \
         printf "  %-10s " "$t"; \
-        command -v "$t" >/dev/null && "$t" --version 2>&1 | head -n1 || echo "(missing)"; \
+        if command -v "$t" >/dev/null; then \
+            case "$t" in \
+                tmux) "$t" -V ;; \
+                *)    "$t" --version 2>&1 | head -n1 ;; \
+            esac; \
+        else echo "(missing)"; fi; \
     done
     @echo "── symlinks ──"
     @./setup.py --links
