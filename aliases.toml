@@ -12,95 +12,95 @@
 
 # ── tmux ──
 [[alias]]
-name  = "t"
+name = "t"
 value = "tmux new -As local"
 needs = "tmux"
-abbr  = true
+abbr = true
 
 [[alias]]
-name  = "ta"
+name = "ta"
 value = "tmux attach -t"
 needs = "tmux"
-abbr  = true
+abbr = true
 
 [[alias]]
-name  = "tl"
+name = "tl"
 value = "tmux list-sessions"
 needs = "tmux"
-abbr  = true
+abbr = true
 
 [[alias]]
-name  = "tk"
+name = "tk"
 value = "tmux kill-session -t"
 needs = "tmux"
-abbr  = true
+abbr = true
 
 # ── editors ──
 [[alias]]
-name  = "v"
+name = "v"
 value = "nvim"
 needs = "nvim"
-abbr  = true
+abbr = true
 
 [[alias]]
-name  = "vi"
+name = "vi"
 value = "nvim"
 needs = "nvim"
-abbr  = true
+abbr = true
 
 # ── modern replacements ──
 [[alias]]
-name  = "cat"
+name = "cat"
 value = "bat"
 needs = "bat"
 
 [[alias]]
-name  = "find"
+name = "find"
 value = "fd"
 needs = "fd"
 
 [[alias]]
-name  = "grep"
+name = "grep"
 value = "rg"
 needs = "rg"
 
 # ── git ──
 [[alias]]
-name  = "g"
+name = "g"
 value = "git"
-abbr  = true
+abbr = true
 
 [[alias]]
-name  = "gs"
+name = "gs"
 value = "git status"
-abbr  = true
+abbr = true
 
 [[alias]]
-name  = "gd"
+name = "gd"
 value = "git diff"
-abbr  = true
+abbr = true
 
 [[alias]]
-name  = "gl"
+name = "gl"
 value = "git log --oneline --graph --decorate"
-abbr  = true
+abbr = true
 
 [[alias]]
-name  = "gp"
+name = "gp"
 value = "git pull"
-abbr  = true
+abbr = true
 
 [[alias]]
-name  = "gP"
+name = "gP"
 value = "git push"
-abbr  = true
+abbr = true
 
 [[alias]]
-name  = "gco"
+name = "gco"
 value = "git checkout"
-abbr  = true
+abbr = true
 
 [[alias]]
-name  = "gcm"
+name = "gcm"
 value = "git commit -m"
-abbr  = true
+abbr = true

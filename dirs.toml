@@ -6,8 +6,7 @@
   ".zshrc",
   "aliases.sh",
 ]
-"~/.config/fish/" = [ "config.fish", "aliases.fish" ]
-"~/.config/nvim/" = [ "init.lua", "lua" ]
-"~/.config/kitty/" = [ "kitty.conf", "kitty-theme.conf" ]
-"~/.tmux/plugins" = [ "tpm" ]
-
+"~/.config/fish/" = ["config.fish", "aliases.fish"]
+"~/.config/nvim/" = ["init.lua", "lua"]
+"~/.config/kitty/" = ["kitty.conf", "kitty-theme.conf"]
+"~/.tmux/plugins" = ["tpm"]
