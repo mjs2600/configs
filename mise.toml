@@ -1,0 +1,8 @@
+# Pinned tool versions installed by `mise install` (run via setup.py).
+# `latest` is fine for tools you always want current; pin a specific version
+# for anything where reproducibility matters more than freshness.
+[tools]
+node = "latest"
+python = "latest"
+rust = "latest"
+lua = "latest"
