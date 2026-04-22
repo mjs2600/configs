@@ -144,7 +144,12 @@ def install_tmux_plugins() -> None:
         run(["git", "submodule", "update", "--init", "--recursive"],
             cwd=CONFIG_DIR)
     install_script = tpm / "bin" / "install_plugins"
-    if install_script.exists():
+    if install_script.exists() and have("tmux"):
+        plugin_path = str(Path.home() / ".tmux" / "plugins") + "/"
+        # TPM reads TMUX_PLUGIN_MANAGER_PATH from tmux's global env, not the
+        # shell, so seed it on the running server before invoking the script.
+        run(["tmux", "start-server", ";",
+             "set-environment", "-g", "TMUX_PLUGIN_MANAGER_PATH", plugin_path])
         run([str(install_script)])
 
 

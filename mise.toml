@@ -1,8 +1,9 @@
 # Pinned tool versions installed by `mise install` (run via setup.py).
-# `latest` is fine for tools you always want current; pin a specific version
-# for anything where reproducibility matters more than freshness.
+#
+# Pinning to a major version (e.g. "22") gets you patch + minor updates on
+# `mise upgrade` but never a surprise major bump. Bump these intentionally.
 [tools]
-node = "latest"
-python = "latest"
-rust = "latest"
-lua = "latest"
+node = "22"     # current LTS
+python = "3.13" # latest stable; 3.14 is fine to bump to when you're ready
+rust = "stable" # rustup's stable channel
+lua = "5.4"     # current stable Lua

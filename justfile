@@ -32,7 +32,10 @@ nvim-update:
     @command -v nvim >/dev/null && nvim --headless "+Lazy! sync" +qa || true
 
 tmux-update:
-    @[ -x tpm/bin/update_plugins ] && tpm/bin/update_plugins all || true
+    @if [ -x tpm/bin/update_plugins ] && command -v tmux >/dev/null; then \
+        tmux start-server \; set-environment -g TMUX_PLUGIN_MANAGER_PATH "$HOME/.tmux/plugins/"; \
+        tpm/bin/update_plugins all; \
+    fi
 
 fish-update:
     @command -v fish >/dev/null && fish -c "fundle update" || true

@@ -21,6 +21,7 @@ brew "sqlite"
 brew "starship"
 brew "tmux"
 brew "uv"
+brew "zoxide"
 
 cask "1password"
 cask "1password-cli"

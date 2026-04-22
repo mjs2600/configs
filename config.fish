@@ -31,7 +31,6 @@ fundle plugin 'derekstavis/fish-neovim'
 fundle plugin 'belltoy/plugin-mix'
 fundle plugin 'belltoy/plugin-iex'
 fundle plugin 'oh-my-fish/plugin-cd'
-fundle plugin 'oh-my-fish/plugin-fasd'
 
 # Linux-only plugins
 switch (uname)
@@ -54,6 +53,7 @@ end
 # ---------------------------------------------------------------------------
 command -q starship; and starship init fish | source
 command -q mise; and mise activate fish | source
+command -q zoxide; and zoxide init fish | source
 
 set -gx EDITOR nvim
 
